@@ -1,0 +1,22 @@
+<div class="login-container">
+ <div class="col-xs-12 col-xl-4">
+  <div class="card default" @fade>
+   <div class="card-header pb-0">
+    <h2 class="text-black text-center">Sign Up</h2>
+    <i class="fa-solid fa-circle-xmark fa-xl closer" (click)="toLogin()"></i>
+   </div>
+   <div class="card-body">
+    <div class="d-flex flex-column row-gap-2">
+     <div class="col-xs-12 d-flex justify-space-between p-0 col-gap-2">
+      <lib-text-field [tf_mdl]="tf_firstname"></lib-text-field>
+      <lib-text-field [tf_mdl]="tf_lastname"></lib-text-field>
+     </div>
+     <lib-text-field [tf_mdl]="tf_mail"></lib-text-field>
+     <lib-text-field [tf_mdl]="tf_password"></lib-text-field>
+     <lib-text-field [tf_mdl]="tf_confirm_password"></lib-text-field>
+     <lib-button [btn_mdl]="btn_registor"></lib-button>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

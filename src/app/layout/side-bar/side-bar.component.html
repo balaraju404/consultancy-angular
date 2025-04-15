@@ -1,7 +1,7 @@
 @if(isSideBars){
  <div class="side-bar-container close-code" @slideLeftInOut>
   @for(menu of menuList;track $index){
-   <div class="menu-container">
+   <div class="menu-container" [class.active]="selectedMenu['link']==menu['link']" (click)="selectedMenu = menu">
     <i [class]="menu['icon']"></i>
     <p>{{menu['title']}}</p>
    </div>

@@ -1444,6 +1444,7 @@ lib-button button.btn-muted:hover {
   padding: 1rem;
   border-radius: 10px;
   box-sizing: border-box;
+  position: relative;
 }
 .card .card-header {
   background: var(--clr);
@@ -1454,6 +1455,12 @@ lib-button button.btn-muted:hover {
   font-size: 1.2rem;
   margin: 0;
   color: white;
+}
+.card .card-header .closer {
+  position: absolute;
+  top: 0;
+  right: -0.7rem;
+  color: red;
 }
 .card .card-body {
   background: #fff;
@@ -1594,7 +1601,7 @@ lib-text-field .input-field-wrapper .input-label {
 .header-container .tabs {
   display: flex;
   flex-direction: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   column-gap: 0.5rem;
@@ -1660,6 +1667,10 @@ lib-text-field .input-field-wrapper .input-label {
   color: #000;
   cursor: pointer;
   transition: background-color 0.4s ease, color 0.4s ease;
+}
+.main-content-container .side-bar-container .menu-container.active {
+  background-color: black;
+  color: #fff;
 }
 .main-content-container .side-bar-container .menu-container:hover {
   background-color: black;

@@ -1,6 +1,6 @@
 <div class="login-container">
  <div class="col-xs-12 col-xl-4">
-  <div class="card default">
+  <div class="card default" @fade>
    <div class="card-header pb-0">
     <h2 class="text-black text-center">Login</h2>
    </div>
@@ -9,9 +9,9 @@
      <lib-text-field [tf_mdl]="tf_mdl_username"></lib-text-field>
      <lib-text-field [tf_mdl]="tf_mdl_pwd"></lib-text-field>
      <lib-button [btn_mdl]="btn_mdl_login"></lib-button>
-     <div class="col-xs-12 d-flex justify-space-between">
+     <div class="col-xs-12 d-flex justify-space-between p-0">
       <span class="c-pointer">Forgot Password?</span>
-      <span class="c-pointer">Create Account</span>
+      <span class="c-pointer" (click)="toRegistor()">Create Account</span>
      </div>
      <lib-button [btn_mdl]="btn_mdl_login_otp"></lib-button>
     </div>

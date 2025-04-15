@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonComponent, ButtonModel, InputType, TextFieldComponent, TextfieldModel } from '@balaraju404/custom-components';
-
+import { Router } from '@angular/router';
+import { fade } from '../../utils/animate';
 @Component({
  selector: 'app-login',
  imports: [TextFieldComponent, ButtonComponent],
  templateUrl: './login.component.html',
- styleUrls: []
+ styleUrls: [],
+ animations: [fade]
 })
 export class LoginComponent {
+ private readonly router = inject(Router);
  tf_mdl_username!: TextfieldModel
  tf_mdl_pwd!: TextfieldModel
  btn_mdl_login!: ButtonModel
@@ -22,5 +25,8 @@ export class LoginComponent {
   this.btn_mdl_login.customClass = "btn-dark text-bold"
   this.btn_mdl_login_otp = new ButtonModel(4, "Login with OTP")
   this.btn_mdl_login_otp.customClass = "btn-muted text-bold"
+ }
+ toRegistor(){
+  this.router.navigate(["layout", "sign-up"]);
  }
 }

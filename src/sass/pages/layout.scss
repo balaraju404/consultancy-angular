@@ -31,7 +31,7 @@
  }
 
  .tabs {
-  @include mixin.flexLayout(flex, start, center, wrap);
+  @include mixin.flexLayout(flex, center, center, wrap);
   column-gap: .5rem;
 
   .tab-item {
@@ -92,6 +92,11 @@
    color: #000;
    cursor: pointer;
    transition: background-color .4s ease, color .4s ease;
+
+   &.active {
+    background-color: black;
+    color: #fff;
+   }
 
    &:hover{
     background-color: black;
