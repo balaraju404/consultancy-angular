@@ -1,0 +1,9 @@
+<div class="header-container">
+ <h2 class="fs8">Balaraju Gandham</h2>
+ <div class="tabs">
+  @for (item of tabsList; track $index) {
+  <div class="tab-item" [class.active]="selectedTab['link']==item['link']" (click)="navigateToRoute(item)">{{item.name}}</div>
+  }
+  <lib-button [btn_mdl]="btn_mdl_login"  (click)="navigateToRoute({link:'login'})"></lib-button>
+ </div>
+</div>
