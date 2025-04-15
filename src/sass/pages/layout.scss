@@ -1,12 +1,34 @@
 @use "../helpers/mixins" as mixin;
 
 .header-container {
- @include mixin.flexLayout();
+ @include mixin.flexLayout(flex, space-between, center, wrap);
  column-gap: .5rem;
  background: #282c34;
  color: #fff;
  width: 100vw;
- height: 10vh;
+ height: auto;
+ box-sizing: border-box;
+ padding: 0.4rem 1rem;
+
+ .header-left {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.2rem;
+ }
+
+ .icon-holder {
+  width: 2rem;
+  height: 2rem;
+  padding: 0.2rem;
+  border-radius: 50%;
+  background-color: #7f4be0;
+  @include mixin.flexLayout(flex, center, center, wrap);
+
+  .icon-hover:hover {
+   animation: fa-bounce 1s infinite;
+  }
+
+ }
 
  .tabs {
   @include mixin.flexLayout(flex, start, center, wrap);
@@ -40,10 +62,42 @@
  height: 80vh;
  max-height: 80vh;
  overflow-x: scroll;
+ position: relative;
 
  >* {
   display: contents;
   width: 100%
+ }
+
+ .side-bar-container {
+  max-width: 200px;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(196, 193, 193, 0.534);
+  backdrop-filter: blur(10px); 
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  row-gap: 0.2rem;
+
+  .menu-container {
+   @include mixin.flexLayout(row, start, center, wrap);
+   margin: 0.4rem 0.4rem 0rem 0.4rem;
+   column-gap: 0.2rem;
+   padding: 0.4rem;
+   border-radius: 0.2rem;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   background-color: #fff;
+   color: #000;
+   cursor: pointer;
+   transition: background-color .4s ease, color .4s ease;
+
+   &:hover{
+    background-color: black;
+    color: #fff;
+   }
+  }
  }
 }
 

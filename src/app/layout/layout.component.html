@@ -1,6 +1,7 @@
 <div class="main-container">
- <app-header></app-header>
+ <app-header [isSideBars]="isSideBar" (eventEmitter)="isSideBar = $event"></app-header>
  <div class="main-content-container">
+  <app-side-bar [isSideBars]="isSideBar" (eventEmitter)="isSideBar = $event"></app-side-bar>
   <router-outlet></router-outlet>
  </div>
  <app-footer></app-footer>

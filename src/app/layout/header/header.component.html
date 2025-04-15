@@ -1,9 +1,32 @@
 <div class="header-container">
- <h2 class="fs8">Balaraju Gandham</h2>
+ <div class="header-left close-code">
+  <div class="icon-holder" (click)="toggleSideBars()">
+   @if(isSideBars){
+    <i class="fa-solid fa-xmark fa-lg icon-hover"></i>
+   }@else {
+    <i class="fa-solid fa-bars fa-lg icon-hover"></i>
+   }
+  </div>
+  <div class="icon-holder">
+   <i class="fa-solid fa-frog fa-lg icon-hover"></i>
+  </div>
+  <div>
+   <h2 class="fs6">#GamePad</h2>
+  </div>
+ </div>
  <div class="tabs">
   @for (item of tabsList; track $index) {
-  <div class="tab-item" [class.active]="selectedTab['link']==item['link']" (click)="navigateToRoute(item)">{{item.name}}</div>
+  <div class="tab-item" [class.active]="selectedTab['link']==item['link']" (click)="navigateToRoute(item)">{{item.name}}
+  </div>
   }
-  <lib-button [btn_mdl]="btn_mdl_login"  (click)="navigateToRoute({link:'login'})"></lib-button>
+ </div>
+ <div>
+  @if(isLogin){
+  <div class="icon-holder">
+
+  </div>
+  }@else {
+  <lib-button [btn_mdl]="btn_mdl_login" (click)="navigateToRoute({link:'login'})"></lib-button>
+  }
  </div>
 </div>
