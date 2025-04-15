@@ -1,0 +1,51 @@
+@use 'sass:math';
+
+$grid-columns: 12;
+$gutter: 16px;
+
+$breakpoints: (
+ xs: null,
+ sm: 576px,
+ md: 768px,
+ lg: 992px,
+ xl: 1200px
+);
+
+// Grid Container
+.container {
+ display: flex;
+ flex-wrap: wrap;
+ margin-left: math.div(-$gutter, 2);
+ margin-right: math.div(-$gutter, 2);
+ gap: $gutter;
+}
+
+// Grid Columns Generator
+@each $breakpoint, $min-width in $breakpoints {
+ // Create selector block if breakpoint is not xs
+ $media-start: if($min-width !=null, true, false);
+
+ @if $media-start {
+  @media (min-width: $min-width) {
+   @for $i from 1 through $grid-columns {
+    .col-#{$breakpoint}-#{$i} {
+     width: math.percentage(math.div($i, $grid-columns));
+     padding: 0 $gutter;
+     box-sizing: border-box;
+    }
+   }
+  }
+ }
+
+ @else {
+
+  // Generate default (xs) columns without media query
+  @for $i from 1 through $grid-columns {
+   .col-#{$breakpoint}-#{$i} {
+    width: math.percentage(math.div($i, $grid-columns));
+    padding: 0 $gutter;
+    box-sizing: border-box;
+   }
+  }
+ }
+}

@@ -1,0 +1,51 @@
+$colors: (
+ white: #FFFFFF,
+ black: #000000,
+ gray: #666666,
+ grayDark: #333333,
+ grayLight: #999999,
+ blue: #007bff,
+ blueDark: #0056b3,
+ blueLight: #87ceeb,
+ red: #dc3545,
+ redDark: #c82333,
+ redLight: #f8d7da,
+ yellow: #ffc107,
+ yellowDark: #f7dc6f,
+ yellowLight: #fff9c4,
+ green: #28a745,
+ greenDark: #1e7e34,
+ greenLight: #c6e2b5,
+ orange: #ff9800,
+ orangeDark: #ff6a00,
+ orangeLight: #ffd7be,
+ purple: #6c5ce7,
+ purpleDark: #5c3f8b,
+ purpleLight: #c5c3c9,
+ pink: #e91e63,
+ pinkDark: #c2185b,
+ pinkLight: #ffc5c5,
+ brown: #964b00,
+ brownDark: #786c3b,
+ brownLight: #d2b48c,
+ teal: #0097a7,
+ tealDark: #00898f
+);
+
+@each $color, $value in $colors {
+ #body {
+  .text-#{""+$color} {
+   color: $value;
+  }
+ }
+}
+
+$alignments: left, center, right, justify;
+
+@each $alignment in $alignments {
+ #body {
+  .text-#{$alignment} {
+   text-align: $alignment;
+  }
+ }
+}

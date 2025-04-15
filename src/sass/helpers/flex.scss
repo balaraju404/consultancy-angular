@@ -1,0 +1,55 @@
+$flex-directions: row, column, row-reverse, column-reverse;
+$justify-options: flex-start, center, flex-end, space-between, space-around, space-evenly;
+$align-options: flex-start, center, flex-end, baseline, stretch;
+
+// Gap Sizes Map (using rem units)
+$gap-sizes: (
+ 1: 0.5rem,
+ 2: 1rem,
+ 3: 1.5rem,
+ 4: 2rem,
+ 5: 2.5rem,
+ 6: 3rem,
+ 7: 3.5rem,
+ 8: 4rem,
+ 9: 4.5rem,
+ 10: 5rem,
+ 11: 5.5rem,
+ 12: 6rem
+);
+
+.d-flex {
+ display: flex;
+}
+
+@each $dir in $flex-directions {
+ .flex-#{$dir} {
+  flex-direction: $dir;
+ }
+}
+
+@each $option in $justify-options {
+ .justify-#{$option} {
+  justify-content: #{$option};
+ }
+}
+
+@each $option in $align-options {
+ .align-#{$option} {
+  align-items: #{$option};
+ }
+}
+
+@each $size, $gap in $gap-sizes {
+ .gap-#{$size} {
+  gap: #{$gap };
+ }
+
+ .row-gap-#{$size} {
+  row-gap: #{$gap};
+ }
+
+ .col-gap-#{$size} {
+  column-gap: #{$gap};
+ }
+}

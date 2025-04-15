@@ -1,0 +1,37 @@
+@use './variables.scss' as *;
+
+@for $i from 0 through $spacing-max {
+ $value: $i * $spacing-step;
+
+ #body {
+  .m-#{$i} {
+   margin: $value;
+  }
+
+  .mt-#{$i} {
+   margin-top: $value;
+  }
+
+  .mr-#{$i} {
+   margin-right: $value;
+  }
+
+  .mb-#{$i} {
+   margin-bottom: $value;
+  }
+
+  .ml-#{$i} {
+   margin-left: $value;
+  }
+
+  .mx-#{$i} {
+   margin-left: $value;
+   margin-right: $value;
+  }
+
+  .my-#{$i} {
+   margin-top: $value;
+   margin-bottom: $value;
+  }
+ }
+}

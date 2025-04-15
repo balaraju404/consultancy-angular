@@ -1,0 +1,56 @@
+@use "../helpers/mixins" as mixin;
+
+.header-container {
+ @include mixin.flexLayout();
+ column-gap: .5rem;
+ background: #282c34;
+ color: #fff;
+ width: 100vw;
+ height: 10vh;
+
+ .tabs {
+  @include mixin.flexLayout(flex, start, center, wrap);
+  column-gap: .5rem;
+
+  .tab-item {
+   background: #282c34;
+   border-radius: 10px;
+   color: #fff;
+   padding: 10px;
+   cursor: pointer;
+   transition: background-color .3s ease, color .3s ease;
+
+   &.active {
+    background: #3b3f4e;
+    color: #fff;
+   }
+
+   &:hover {
+    background: #3b3f4e;
+    color: #fff;
+    text-decoration: underline
+   }
+  }
+ }
+}
+
+.main-content-container {
+ @include mixin.flexLayout(row, start, start, wrap);
+ width: 100vw;
+ height: 80vh;
+ max-height: 80vh;
+ overflow-x: scroll;
+
+ >* {
+  display: contents;
+  width: 100%
+ }
+}
+
+.footer-container {
+ @include mixin.flexLayout();
+ background: #282c34;
+ color: #fff;
+ width: 100vw;
+ height: 10vh;
+}

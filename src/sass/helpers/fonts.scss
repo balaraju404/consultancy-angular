@@ -1,0 +1,49 @@
+// Font Size Utilities
+$font-sizes: (
+ 'fs0': 1rem,
+ 'fs1': 1.1rem,
+ 'fs2': 1.2rem,
+ 'fs3': 1.3rem,
+ 'fs4': 1.4rem,
+ 'fs5': 1.5rem,
+ 'fs6': 1.6rem,
+ 'fs7': 1.7rem,
+ 'fs8': 1.8rem,
+ 'fs9': 1.9rem,
+ 'fs10': 2rem,
+ 'fs11': 2.1rem,
+ 'fs12': 2.2rem,
+ 'fs13': 2.3rem,
+ 'fs14': 2.4rem,
+ 'fs15': 2.5rem,
+ 'fs16': 2.6rem,
+ 'fs17': 2.7rem,
+ 'fs18': 2.8rem,
+ 'fs19': 2.9rem,
+ 'fs20': 3rem
+);
+
+$font-weights: (
+ fw100: 100,
+ fw200: 200,
+ fw300: 300,
+ fw400: 400,
+ fw500: 500,
+ fw600: 600,
+ fw700: 700,
+ fw800: 800,
+ fw900: 900
+);
+
+// Generate Classes in Single Format
+@each $size-class, $size in $font-sizes {
+ .#{$size-class} {
+  font-size: $size;
+ }
+}
+
+@each $weight-class, $weight in $font-weights {
+ .#{$weight-class} {
+  font-weight: $weight;
+ }
+}

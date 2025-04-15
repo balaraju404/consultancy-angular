@@ -1,0 +1,17 @@
+@use "./flex";
+@use "./grid";
+@use "./mixins";
+@use "./border";
+@use "./fonts";
+@use "./padding";
+@use "./margin";
+
+#body {
+ .c-pointer {
+  cursor: pointer;
+ }
+
+ .text-bold {
+  font-weight: bold;
+ }
+}

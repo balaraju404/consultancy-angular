@@ -1,0 +1,20 @@
+@use "./colors.scss" as *;
+
+// Mixin to Get Text Color
+@mixin getColor($color-name) {
+ color: map-get($colors, $color-name);
+}
+
+// Mixin to Get Background Color
+@mixin getBgColor($color-name) {
+ background-color: map-get($colors, $color-name);
+}
+
+// Mixin for Flexbox Layout
+@mixin flexLayout($direction: row, $justifyContent: center, $alignItems: center, $wrap: nowrap) {
+ display: flex;
+ flex-direction: $direction;
+ justify-content: $justifyContent;
+ align-items: $alignItems;
+ flex-wrap: $wrap;
+}

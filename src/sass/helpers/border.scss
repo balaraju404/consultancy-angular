@@ -1,0 +1,13 @@
+$directions: top, bottom, right, left, full;
+
+@each $dir in $directions {
+ .bdr-#{$dir} {
+  @if $dir ==full {
+   border: 1px solid rgba(0, 0, 0, 0.25);
+  }
+
+  @else {
+   border-#{$dir}: 1px solid rgba(0, 0, 0, 0.25);
+  }
+ }
+}

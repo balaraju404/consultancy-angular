@@ -1,0 +1,52 @@
+@use "../helpers/variables.scss" as *;
+
+.card {
+ background: $white-clr;
+ padding: 1rem;
+ border-radius: 10px;
+ box-sizing: border-box;
+
+ .card-header {
+  background: var(--clr);
+  padding: 1rem;
+  border-radius: 10px 10px 0 0;
+
+  h2 {
+   font-size: 1.2rem;
+   margin: 0;
+   color: white;
+  }
+ }
+
+ .card-body {
+  background: $white-clr;
+  padding: 1rem;
+  border: 0.1px solid var(--clr);
+  border-radius: 0 0 10px 10px;
+ }
+}
+
+$themes: "default" #fff 10px,
+ "primary" #4CAF50,
+ "secondary" #03A9F4,
+ "success" #8BC34A,
+ "danger" #F44336,
+ "warning" #FF9800,
+ "info" #2196F3,
+ "light" #F7F7F7,
+ "dark" #212121;
+
+@each $theme, $clr, $radius in $themes {
+ .card.#{$theme} {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  // border-radius: $radius;
+
+  .card-header {
+   background: $clr;
+  }
+
+  .card-body {
+   border-color: $clr;
+  }
+ }
+}
