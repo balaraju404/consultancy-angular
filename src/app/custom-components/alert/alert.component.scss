@@ -1,0 +1,159 @@
+@use "sass:map";
+@use "sass:color";
+
+$padding: 0.5rem;
+
+$themes: (
+ default: (bg: #ffffff,
+  text: #000000,
+  padding-bottom: 0 // only for default
+ ),
+ success: (bg: #34c759,
+  text: #ffffff),
+ danger: (bg: #dc3545,
+  text: #ffffff),
+ warning: (bg: #ffc107,
+  text: #000000),
+ info: (bg: #17a2b8,
+  text: #ffffff)
+);
+
+.container-overlay {
+ position: fixed;
+ top: 0;
+ left: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 100vh;
+ width: 100vw;
+ background: rgba(0, 0, 0, 0.6);
+ z-index: 999;
+ animation: fadeIn 0.3s ease-in-out;
+
+ .alert-container {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  font-family: "Arial", sans-serif;
+
+  .alert-header {
+   padding: $padding;
+
+   h2 {
+    font-size: 0.8rem;
+    font-weight: 600;
+   }
+  }
+
+  .alert-body {
+   padding: $padding;
+   font-size: 0.7rem;
+   color: #333;
+   line-height: 1.5;
+  }
+
+  .alert-footer {
+   display: flex;
+   justify-content: flex-end;
+   padding: $padding;
+   padding-top: 0;
+   gap: .6rem;
+
+   .btn {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.6rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+
+    &.btn-primary {
+     background-color: #007bff;
+     color: white;
+
+     &:hover {
+      background-color: #0056b3;
+     }
+    }
+
+    &.btn-secondary {
+     background-color: #6c757d;
+     color: white;
+
+     &:hover {
+      background-color: #545b62;
+     }
+    }
+   }
+  }
+ }
+
+ // Dynamically generate theme-specific styles
+ @each $theme-name, $props in $themes {
+  .alert-container.#{$theme-name} {
+   $bg: map.get($props, bg);
+   $text: map.get($props, text);
+   $padBtm: map.get($props, padding-bottom);
+
+   .alert-header {
+    background-color: $bg;
+    color: $text;
+
+    // Apply optional padding-bottom override
+    @if $padBtm !=null {
+     padding-bottom: $padBtm;
+    }
+   }
+
+   @if $theme-name !="default" {
+    .btn-primary {
+     background-color: $bg !important;
+     border-color: $bg !important;
+
+     &:hover {
+      background-color: color.adjust($bg, $lightness: -10%) !important;
+     }
+    }
+   }
+  }
+ }
+}
+
+// Animations
+@keyframes fadeIn {
+ from {
+  opacity: 0;
+ }
+
+ to {
+  opacity: 1;
+ }
+}
+
+@keyframes slideUp {
+ from {
+  transform: translateY(40px);
+  opacity: 0;
+ }
+
+ to {
+  transform: translateY(0);
+  opacity: 1;
+ }
+}
+
+// Responsive
+@media (max-width: 480px) {
+ .alert-container {
+  max-width: 90%;
+ }
+}
