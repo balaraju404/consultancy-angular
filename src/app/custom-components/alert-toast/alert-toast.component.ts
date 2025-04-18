@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { fade } from '../../utils/animate';
 
 @Component({
  selector: 'lib-toast-alert',
  imports: [],
  templateUrl: './alert-toast.component.html',
- styleUrl: './alert-toast.component.scss'
+ styleUrl: './alert-toast.component.scss',
+ animations: [fade]
 })
 export class ToastAlertComponent {
  @Input() toast_mdl!: ToastAlertModel;
