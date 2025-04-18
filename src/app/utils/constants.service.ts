@@ -7,9 +7,14 @@ import { Injectable } from "@angular/core";
 export class Constants {
  public static readonly API_URL = 'http://localhost:3000/';
 
+ // localstorage keys
+ public static readonly LS_USERDATA_KEY = 'userdata';
+ public static readonly LS_TOKEN_KEY = 'token';
+
  // urls
- public static readonly LOGIN_URL = Constants.API_URL + 'login';
  public static readonly USER_URL = Constants.API_URL + 'user';
+ public static readonly LOGIN_URL = Constants.API_URL + 'login';
+ public static readonly LOGIN_WITH_PWD_URL = Constants.LOGIN_URL + '/password';
 
  // regex values
  static readonly EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

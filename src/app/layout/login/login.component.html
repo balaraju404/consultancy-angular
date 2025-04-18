@@ -6,14 +6,14 @@
    </div>
    <div class="card-body">
     <div class="d-flex flex-column row-gap-2">
-     <lib-text-field [tf_mdl]="tf_mdl_username"></lib-text-field>
-     <lib-text-field [tf_mdl]="tf_mdl_pwd"></lib-text-field>
-     <lib-button [btn_mdl]="btn_mdl_login"></lib-button>
+     <lib-text-field [tf_mdl]="tf_username"></lib-text-field>
+     <lib-text-field [tf_mdl]="tf_pwd"></lib-text-field>
+     <lib-button [btn_mdl]="btn_login" (eventHandler)="eventHandler($event)"></lib-button>
      <div class="col-xs-12 d-flex justify-space-between p-0">
       <span class="c-pointer">Forgot Password?</span>
       <span class="c-pointer" (click)="toRegistor()">Create Account</span>
      </div>
-     <lib-button [btn_mdl]="btn_mdl_login_otp"></lib-button>
+     <lib-button [btn_mdl]="btn_login_otp"></lib-button>
     </div>
    </div>
   </div>
