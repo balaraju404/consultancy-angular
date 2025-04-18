@@ -1,10 +1,10 @@
-<div class="header-container">
+<header class="header-container">
  <div class="header-left close-code">
   <div class="icon-holder" (click)="toggleSideBars()">
    @if(isSideBars){
-    <i class="fa-solid fa-xmark fa-lg icon-hover"></i>
+   <i class="fa-solid fa-xmark fa-lg icon-hover"></i>
    }@else {
-    <i class="fa-solid fa-bars fa-lg icon-hover"></i>
+   <i class="fa-solid fa-bars fa-lg icon-hover"></i>
    }
   </div>
   <div class="icon-holder">
@@ -29,4 +29,4 @@
   <lib-button [btn_mdl]="btn_mdl_login" (click)="navigateToRoute({link:'login'})"></lib-button>
   }
  </div>
-</div>
+</header>

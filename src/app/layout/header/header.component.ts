@@ -20,8 +20,11 @@ export class HeaderComponent {
  @Input() isSideBars: boolean = false;
  @Output() eventEmitter = new EventEmitter();
  ngOnInit() {
-  this.selectedTab = this.tabsList[0];
   this.setupFields();
+  const routeArr = location.href.split("/")
+  const lastPath = routeArr[routeArr.length - 1]
+  const tab = this.tabsList.find((tab: any) => tab.link == lastPath) || { link: lastPath }
+  this.navigateToRoute(tab);
  }
  setupFields() {
   this.btn_mdl_login = new ButtonModel(1, "Login");

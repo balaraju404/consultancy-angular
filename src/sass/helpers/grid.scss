@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 $grid-columns: 12;
-$gutter: 16px;
+$gutter: .4rem;
 
 $breakpoints: (
  xs: null,

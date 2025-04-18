@@ -58,16 +58,13 @@
 
 .main-content-container {
  @include mixin.flexLayout(row, start, start, wrap);
+ margin-top: auto;
+ box-sizing: border-box;
  width: 100vw;
- height: 80vh;
- max-height: 80vh;
+ max-height: 90vh;
  overflow-x: scroll;
- position: relative;
-
- >* {
-  display: contents;
-  width: 100%
- }
+ // position: relative;
+ background: #e9e9e9;
 
  .side-bar-container {
   max-width: 200px;
@@ -75,7 +72,7 @@
   position: absolute;
   inset: 0;
   background-color: rgba(196, 193, 193, 0.534);
-  backdrop-filter: blur(10px); 
+  backdrop-filter: blur(10px);
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
@@ -98,18 +95,37 @@
     color: #fff;
    }
 
-   &:hover{
+   &:hover {
     background-color: black;
     color: #fff;
    }
   }
  }
-}
 
-.footer-container {
- @include mixin.flexLayout();
- background: #282c34;
- color: #fff;
- width: 100vw;
- height: 10vh;
+ .body-container {
+  @include mixin.flexLayout(row, start, start, wrap);
+  padding: .75rem 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 90vh;
+
+  >* {
+   display: contents;
+   width: 100%;
+  }
+ }
+
+ app-footer {
+  width: 100%;
+ }
+
+ .footer-container {
+  @include mixin.flexLayout(row, space-around, start, wrap);
+  background: #282c34;
+  color: #fff;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem;
+  box-sizing: border-box;
+ }
 }
