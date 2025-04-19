@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
-import { ToastAlertPosition, ToastAlertType } from "../custom-components/alert-toast/alert-toast.component";
+import { ToastAlertPosition, ToastAlertType } from "@balaraju404/custom-components";
 import { Constants } from "./constants.service";
 
 @Injectable({
