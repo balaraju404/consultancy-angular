@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
  selector: 'lib-image-slider',
  templateUrl: './image-slider.component.html',
- styleUrls: ['./image-slider.component.scss'],
+ styleUrls: ['./image-slider.component.scss']
 })
-export class ImageSliderComponent implements OnInit, OnDestroy {
+export class ImageSliderComponent {
  @Input() img_slider_mdl!: ImageSliderModal;
 
  private autoplayIntervalID: any;
