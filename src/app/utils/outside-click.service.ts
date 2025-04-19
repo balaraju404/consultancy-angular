@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+ providedIn: 'root'
 })
 export class OutsideClickService {
  clickOutsideEmitter: EventEmitter<any> = new EventEmitter<any>();

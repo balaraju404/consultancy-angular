@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
-import { RouterModule } from '@angular/router';
 import { SideBarComponent } from "./side-bar/side-bar.component";
-import { ToastAlertComponent, ToastAlertModel } from '../custom-components/alert-toast/alert-toast.component';
+import { ToastAlertComponent, ToastAlertModel } from '@balaraju404/custom-components';
 import { Util } from '../utils/util.service';
 
 @Component({

@@ -1,17 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { ButtonComponent, ButtonModel, InputType, TextFieldComponent, TextfieldModel } from '@balaraju404/custom-components';
 import { Router } from '@angular/router';
-import { fade } from '../../utils/animate';
+import { ButtonComponent, ButtonModel, InputType, TextFieldComponent, TextfieldModel, fade, ToastAlertType, ApiService } from '@balaraju404/custom-components';
 import { Util } from '../../utils/util.service';
-import { ToastAlertType } from '../../custom-components/alert-toast/alert-toast.component';
-import { ApiService } from '../../utils/api-service.service';
 import { Constants } from '../../utils/constants.service';
+
 @Component({
  selector: 'app-login',
  imports: [TextFieldComponent, ButtonComponent],
  templateUrl: './login.component.html',
  styleUrls: [],
- animations: [fade]
+ animations: [fade()]
 })
 export class LoginComponent {
  private readonly router = inject(Router);
