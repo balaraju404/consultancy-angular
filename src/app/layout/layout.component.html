@@ -2,8 +2,8 @@
  <app-header [isSideBars]="isSideBar" (eventEmitter)="isSideBar = $event"></app-header>
  <div class="main-content-container">
   <div class="body-container">
-   <app-side-bar [isSideBars]="isSideBar" (eventEmitter)="isSideBar = $event"></app-side-bar>
    <router-outlet></router-outlet>
+   <app-side-bar [isSideBars]="isSideBar" (eventEmitter)="isSideBar = $event"></app-side-bar>
    <div class="toast">
     <lib-toast-alert [toast_mdl]="toast_mdl"></lib-toast-alert>
    </div>

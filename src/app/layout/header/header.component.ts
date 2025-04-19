@@ -9,6 +9,7 @@ import { ButtonComponent, ButtonModel } from '@balaraju404/custom-components';
 })
 export class HeaderComponent {
  private readonly router = inject(Router)
+ headerName: string = "Shashi Consultancy"
  tabsList: any = [
   { "name": "Home", "link": "home" },
   { "name": "About", "link": "about" },

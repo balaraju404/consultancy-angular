@@ -1,0 +1,11 @@
+<div class="image-slider-container">
+ <div class="image-slider-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+  <img [src]="img_slider_mdl!.images[img_slider_mdl!.currentIndex]" class="image-slider-image" alt="Image" />
+ </div>
+
+ <div class="image-slider-dots">
+  @for (image of img_slider_mdl!.images; track $index; let i = $index) {
+  <span class="image-slider-dot" [class.active]="i === img_slider_mdl!.currentIndex" (click)="goToSlide(i)"></span>
+  }
+ </div>
+</div>
