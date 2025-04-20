@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonComponent, ButtonModel, InputType, TextFieldComponent, TextfieldModel, fade, ToastAlertType, ApiService } from '@balaraju404/custom-components';
+import { ButtonComponent, ButtonModel, InputType, TextFieldComponent, TextfieldModel, fade, ToastAlertType, ApiService, LSService } from '@balaraju404/custom-components';
 import { Util } from '../../utils/util.service';
 import { Constants } from '../../utils/constants.service';
 
@@ -29,11 +29,10 @@ export class LoginComponent {
   this.btn_login_otp = new ButtonModel(4, "Login with OTP")
   this.btn_login_otp.customClass = "btn-muted text-bold"
  }
- toRegistor() {
+ navigateToSignUp() {
   this.router.navigate(["layout", "sign-up"]);
  }
  eventHandler(event: any) {
-  console.log(event);
   const tag = event["tag"] || 0
   switch (tag) {
    case 3:
@@ -67,18 +66,22 @@ export class LoginComponent {
    next: (res: any) => {
     if (res["status"]) {
      Util.showToastAlert(ToastAlertType.Success, "", res["msg"])
-     this.router.navigate(["layout", "login"])
-     this.clearForm()
+     const userData = res["data"] || {}
+     this.onSuccessLogin(userData)
     } else {
      Util.showToastAlert(ToastAlertType.Danger, "", res["msg"])
     }
    }, error: err => {
-    console.log(err);
     const errMsg = err.error["msg"] || "Something went wrong"
     Util.showToastAlert(ToastAlertType.Danger, "", errMsg)
-
    }
   })
+ }
+ onSuccessLogin(userData: any) {
+  LSService.setItem(Constants.LS_USERDATA_KEY, userData)
+  Util.onLoginSubject.next(true)
+  this.router.navigate(["layout", "home"])
+  this.clearForm()
  }
  getParams() {
   return {

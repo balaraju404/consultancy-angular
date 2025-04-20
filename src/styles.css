@@ -1594,6 +1594,7 @@ lib-text-field .input-field-wrapper .input-label {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 .header-container .icon-holder .icon-hover:hover {
   animation: fa-bounce 1s infinite;

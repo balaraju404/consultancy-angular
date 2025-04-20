@@ -23,6 +23,7 @@
   border-radius: 50%;
   background-color: #7f4be0;
   @include mixin.flexLayout(flex, center, center, wrap);
+  cursor: pointer;
 
   .icon-hover:hover {
    animation: fa-bounce 1s infinite;

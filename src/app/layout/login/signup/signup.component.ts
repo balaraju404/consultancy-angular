@@ -38,7 +38,6 @@ export class SignupComponent implements OnInit {
   this.router.navigate(["layout", "login"]);
  }
  eventHandler(event: any) {
-  console.log(event);
   const tag = event["tag"] || 0
   switch (tag) {
    case 7:
@@ -91,7 +90,6 @@ export class SignupComponent implements OnInit {
      Util.showToastAlert(ToastAlertType.Danger, "", res["msg"])
     }
    }, error: err => {
-    console.log(err);
     const errMsg = err.error["msg"] || "Something went wrong"
     Util.showToastAlert(ToastAlertType.Danger, "", errMsg)
 

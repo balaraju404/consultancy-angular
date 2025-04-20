@@ -1,6 +1,8 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonComponent, ButtonModel } from '@balaraju404/custom-components';
+import { ButtonComponent, ButtonModel, LSService } from '@balaraju404/custom-components';
+import { Util } from '../../utils/util.service';
+import { Constants } from '../../utils/constants.service';
 @Component({
  selector: 'app-header',
  imports: [ButtonComponent],
@@ -8,7 +10,11 @@ import { ButtonComponent, ButtonModel } from '@balaraju404/custom-components';
  styleUrls: []
 })
 export class HeaderComponent {
+ @Input() isSideBars: boolean = false;
+ @Output() eventEmitter = new EventEmitter();
+
  private readonly router = inject(Router)
+
  headerName: string = "Shashi Consultancy"
  tabsList: any = [
   { "name": "Home", "link": "home" },
@@ -16,11 +22,15 @@ export class HeaderComponent {
   { "name": "Contact Us", "link": "contactus" },
  ]
  selectedTab: any = {}
- btn_mdl_login!: ButtonModel;
+ userData: any = {}
  isLogin: boolean = false;
- @Input() isSideBars: boolean = false;
- @Output() eventEmitter = new EventEmitter();
+ btn_mdl_login!: ButtonModel;
  ngOnInit() {
+  this.userData = LSService.getItem(Constants.LS_USERDATA_KEY)
+  if (this.userData) this.isLogin = true
+  Util.onLoginSubject.subscribe((status: boolean) => {
+   this.isLogin = status
+  })
   this.setupFields();
   const routeArr = location.href.split("/")
   const lastPath = routeArr[routeArr.length - 1]
