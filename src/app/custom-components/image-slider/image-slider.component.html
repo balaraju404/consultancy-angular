@@ -1,5 +1,6 @@
 <div class="image-slider-container">
- <div class="image-slider-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+ <div class="image-slider-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)"
+  [style.height]="img_slider_mdl!.height">
   <img [src]="img_slider_mdl!.images[img_slider_mdl!.currentIndex]" class="image-slider-image" alt="Image" />
  </div>
 

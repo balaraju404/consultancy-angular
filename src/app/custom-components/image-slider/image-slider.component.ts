@@ -72,6 +72,7 @@ export class ImageSliderModal {
  public images: string[] = [];
  public currentIndex: number = 0;
  public isAutoPlay: boolean = true;
+ public height: string = "25rem";
  public autoplayInterval: number = 5000;
 
  constructor(images: string[] = [], isAutoPlay: boolean = true, autoplayInterval: number = 5000) {
