@@ -3,7 +3,7 @@
 .header-container {
  @include mixin.flexLayout(flex, space-between, center, wrap);
  column-gap: .5rem;
- background: #282c34;
+ background: #20243a; // #282c34;
  color: #fff;
  width: 100vw;
  height: auto;
@@ -36,7 +36,7 @@
   column-gap: .5rem;
 
   .tab-item {
-   background: #282c34;
+   // background: #282c34;
    border-radius: 10px;
    color: #fff;
    padding: 10px;

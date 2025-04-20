@@ -42,23 +42,23 @@
   justify-content: space-evenly;
 }
 
-.align-flex-start {
+.align-items-flex-start {
   align-items: flex-start;
 }
 
-.align-center {
+.align-items-center {
   align-items: center;
 }
 
-.align-flex-end {
+.align-items-flex-end {
   align-items: flex-end;
 }
 
-.align-baseline {
+.align-items-baseline {
   align-items: baseline;
 }
 
-.align-stretch {
+.align-items-stretch {
   align-items: stretch;
 }
 
@@ -209,9 +209,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -0.2rem;
-  margin-right: -0.2rem;
-  gap: 0.4rem;
+  width: 100%;
 }
 
 .col-xs-1 {
@@ -1348,6 +1346,12 @@
 #body .text-bold {
   font-weight: bold;
 }
+#body .w-100 {
+  width: 100%;
+}
+#body .h-100 {
+  height: 100%;
+}
 
 lib-button button.btn-dark {
   background: #171e25;
@@ -1439,6 +1443,14 @@ lib-button button.btn-muted:hover {
   background: rgb(232.75, 232.75, 232.75);
 }
 
+.btn-grp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .card {
   background: #fff;
   padding: 1rem;
@@ -1474,6 +1486,9 @@ lib-button button.btn-muted:hover {
 }
 .card.default .card-header {
   background: #fff;
+}
+.card.default .card-header h2 {
+  color: #000;
 }
 .card.default .card-body {
   border-color: #fff;
@@ -1564,6 +1579,60 @@ lib-text-field .input-field-wrapper .input-label {
   font-weight: 600;
 }
 
+.strip-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.strip-heading .strip {
+  width: 0.6rem;
+  height: 1.5rem;
+  background-color: var(--clr);
+  border-radius: 2px;
+}
+.strip-heading h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.strip-heading.default .strip {
+  background: #fff;
+}
+
+.strip-heading.primary .strip {
+  background: #4CAF50;
+}
+
+.strip-heading.secondary .strip {
+  background: #03A9F4;
+}
+
+.strip-heading.success .strip {
+  background: #8BC34A;
+}
+
+.strip-heading.danger .strip {
+  background: #F44336;
+}
+
+.strip-heading.warning .strip {
+  background: #FF9800;
+}
+
+.strip-heading.info .strip {
+  background: #2196F3;
+}
+
+.strip-heading.light .strip {
+  background: #F7F7F7;
+}
+
+.strip-heading.dark .strip {
+  background: #212121;
+}
+
 .header-container {
   display: flex;
   flex-direction: flex;
@@ -1571,7 +1640,7 @@ lib-text-field .input-field-wrapper .input-label {
   align-items: center;
   flex-wrap: wrap;
   column-gap: 0.5rem;
-  background: #282c34;
+  background: #20243a;
   color: #fff;
   width: 100vw;
   height: auto;
@@ -1608,7 +1677,6 @@ lib-text-field .input-field-wrapper .input-label {
   column-gap: 0.5rem;
 }
 .header-container .tabs .tab-item {
-  background: #282c34;
   border-radius: 10px;
   color: #fff;
   padding: 10px;
@@ -1716,10 +1784,24 @@ lib-text-field .input-field-wrapper .input-label {
   height: 100%;
 }
 
+.profile-img {
+  width: 12.5rem;
+  height: 12.5rem;
+  background: #efeff3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.profile-img i {
+  font-size: 6rem;
+  color: #c6c7cd;
+}
+
 :root {
-  --clr: #282c34;
-  --clr-light: #3b3f4e;
-  --clr-dark: #4b1f66;
+  --clr: #20243a;
+  --clr-light: lighten(#20243a, 20%);
+  --clr-dark: darken(#20243a, 20%);
 }
 
 * {

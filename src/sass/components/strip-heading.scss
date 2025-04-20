@@ -1,0 +1,42 @@
+@use "../helpers/variables.scss" as *;
+
+.strip-heading {
+ display: flex;
+ align-items: center;
+ gap: 0.6rem;
+
+ .strip {
+  width: 0.6rem;
+  height: 1.5rem;
+  background-color: var(--clr); // use inline style or CSS variable
+  border-radius: 2px;
+ }
+
+ h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+ }
+}
+
+
+$themes: "default" #fff 10px,
+ "primary" #4CAF50,
+ "secondary" #03A9F4,
+ "success" #8BC34A,
+ "danger" #F44336,
+ "warning" #FF9800,
+ "info" #2196F3,
+ "light" #F7F7F7,
+ "dark" #212121;
+
+@each $theme, $clr, $radius in $themes {
+ .strip-heading.#{$theme} {
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .strip {
+   background: $clr;
+  }
+ }
+}

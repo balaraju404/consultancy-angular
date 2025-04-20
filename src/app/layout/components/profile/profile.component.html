@@ -1,1 +1,45 @@
-<p>profile works!</p>
+<div class="container">
+ <div class="col-xs-12">
+  <div class="card default p-0">
+   <div class="card-header">
+    <div class="strip-heading">
+     <div class="strip"></div>
+     <h2>Profile</h2>
+    </div>
+   </div>
+   <div class="card-body">
+    <div class="container">
+     <div class="col-xs-12 col-xl-6">
+      <div class="container flex-column justify-center align-items-center gap-2 h-100">
+       <div class="profile-img">
+        <i class="fas fa-user"></i>
+       </div>
+       <div class="btn-grp">
+        <lib-button [btn_mdl]="btn_edit"></lib-button>
+        <lib-button [btn_mdl]="btn_change_pwd"></lib-button>
+        <lib-button [btn_mdl]="btn_logout"></lib-button>
+       </div>
+      </div>
+     </div>
+     <div class="col-xs-12 col-xl-6">
+      <div class="d-flex flex-column row-gap-2">
+       @for (item of showFields; track $index) {
+       <div class="col-xs-12 container">
+        <div class="col-xs-12 col-xl-4">
+         <div class="strip-heading">
+          <div class="strip"></div>
+          <p class="fs2 fw600">{{item["name"]}}</p>
+         </div>
+        </div>
+        <div class="col-xs-12 col-xl-8">
+         <p class="ml-5 fs2 ">{{userData[item["key"]]||""}}</p>
+        </div>
+       </div>
+       }
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

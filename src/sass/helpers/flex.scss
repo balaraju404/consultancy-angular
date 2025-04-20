@@ -35,7 +35,7 @@ $gap-sizes: (
 }
 
 @each $option in $align-options {
- .align-#{$option} {
+ .align-items-#{$option} {
   align-items: #{$option};
  }
 }

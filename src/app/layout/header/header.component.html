@@ -23,7 +23,7 @@
  <div>
   @if(isLogin){
   <div class="icon-holder" (click)="navigateToRoute({link:'profile'})">
-
+   <i class="fa-solid fa-user fa-lg"></i>
   </div>
   }@else {
   <lib-button [btn_mdl]="btn_mdl_login" (click)="navigateToRoute({link:'login'})"></lib-button>

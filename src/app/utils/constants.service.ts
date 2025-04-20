@@ -5,7 +5,8 @@ import { Injectable } from "@angular/core";
 })
 
 export class Constants {
- public static readonly API_URL = 'http://localhost:3000/';
+ // public static readonly API_URL = 'http://localhost:3000/';
+ public static readonly API_URL = 'https://consultancy-node.vercel.app/';
 
  // localstorage keys
  public static readonly LS_USERDATA_KEY = 'userdata';

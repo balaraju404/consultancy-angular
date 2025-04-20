@@ -3,9 +3,9 @@
 @use "./pages";
 
 :root {
- --clr: #282c34;
- --clr-light: #3b3f4e;
- --clr-dark: #4b1f66;
+ --clr: #20243a; //#282c34;
+ --clr-light: lighten(#20243a, 20%);
+ --clr-dark: darken(#20243a, 20%);
 }
 
 * {

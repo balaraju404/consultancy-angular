@@ -27,3 +27,11 @@ $colors: "dark" #171e25 #ffffff,
   }
  }
 }
+
+.btn-grp {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 1rem;
+}

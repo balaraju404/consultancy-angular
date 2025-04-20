@@ -26,8 +26,8 @@ export class HeaderComponent {
  isLogin: boolean = false;
  btn_mdl_login!: ButtonModel;
  ngOnInit() {
-  this.userData = LSService.getItem(Constants.LS_USERDATA_KEY)
-  if (this.userData) this.isLogin = true
+  this.userData = LSService.getItem(Constants.LS_USERDATA_KEY) || {};
+  if (Object.keys(this.userData).length > 0) this.isLogin = true
   Util.onLoginSubject.subscribe((status: boolean) => {
    this.isLogin = status
   })

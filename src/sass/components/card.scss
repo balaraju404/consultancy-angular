@@ -18,7 +18,7 @@
    color: white;
   }
 
-  .closer{
+  .closer {
    position: absolute;
    top: 0;
    right: -0.7rem;
@@ -51,6 +51,12 @@ $themes: "default" #fff 10px,
 
   .card-header {
    background: $clr;
+
+   @if($theme=="default") {
+    h2 {
+     color: $black-clr;
+    }
+   }
   }
 
   .card-body {
