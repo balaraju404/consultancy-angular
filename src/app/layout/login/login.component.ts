@@ -62,8 +62,10 @@ export class LoginComponent {
  }
  checkLoginWithPwd() {
   const params = this.getParams()
+  Util.loaderSubject.next(true)
   this.apiService.postApi(Constants.LOGIN_WITH_PWD_URL, params).subscribe({
    next: (res: any) => {
+    Util.loaderSubject.next(false)
     if (res["status"]) {
      Util.showToastAlert(ToastAlertType.Success, "", res["msg"])
      const userData = res["data"] || {}
@@ -72,6 +74,7 @@ export class LoginComponent {
      Util.showToastAlert(ToastAlertType.Danger, "", res["msg"])
     }
    }, error: err => {
+    Util.loaderSubject.next(false)
     const errMsg = err.error["msg"] || "Something went wrong"
     Util.showToastAlert(ToastAlertType.Danger, "", errMsg)
    }

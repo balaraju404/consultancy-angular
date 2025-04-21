@@ -8,8 +8,8 @@ import { Constants } from "./constants.service";
 })
 export class Util {
  static toastAlertSubject = new Subject<any>();
+ static loaderSubject = new Subject<any>();
  static onLoginSubject = new Subject<any>();
- static onLogoutSubject = new Subject<any>();
 
  static showToastAlert(toastType: ToastAlertType, title: string, message: string, showClose: boolean = true, autoHide: boolean = true, delay: number = 5000, position: ToastAlertPosition = ToastAlertPosition.Top_Right) {
   const obj = { toastType, title, message, showClose, autoHide, delay, position }

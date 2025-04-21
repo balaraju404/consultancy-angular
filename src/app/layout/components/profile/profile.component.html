@@ -15,9 +15,9 @@
         <i class="fas fa-user"></i>
        </div>
        <div class="btn-grp">
-        <lib-button [btn_mdl]="btn_edit"></lib-button>
-        <lib-button [btn_mdl]="btn_change_pwd"></lib-button>
-        <lib-button [btn_mdl]="btn_logout"></lib-button>
+        <lib-button [btn_mdl]="btn_edit" (eventHandler)="eventHandler($event)"></lib-button>
+        <lib-button [btn_mdl]="btn_change_pwd" (eventHandler)="eventHandler($event)"></lib-button>
+        <lib-button [btn_mdl]="btn_logout" (eventHandler)="onLogout()"></lib-button>
        </div>
       </div>
      </div>
@@ -34,6 +34,11 @@
         <div class="col-xs-12 col-xl-8">
          <p class="ml-5 fs2 ">{{userData[item["key"]]||""}}</p>
         </div>
+       </div>
+       }
+       @if (isEdit) {
+       <div class="mt-2">
+        <lib-button [btn_mdl]="btn_update" (eventHandler)="eventHandler($event)"></lib-button>
        </div>
        }
       </div>

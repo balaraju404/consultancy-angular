@@ -80,8 +80,10 @@ export class SignupComponent implements OnInit {
  }
  createUser() {
   const params = this.getParams()
+  Util.loaderSubject.next(true)
   this.apiService.postApi(Constants.USER_URL, params).subscribe({
    next: (res: any) => {
+    Util.loaderSubject.next(false)
     if (res["status"]) {
      Util.showToastAlert(ToastAlertType.Success, "", res["msg"])
      this.router.navigate(["layout", "login"])
@@ -90,9 +92,9 @@ export class SignupComponent implements OnInit {
      Util.showToastAlert(ToastAlertType.Danger, "", res["msg"])
     }
    }, error: err => {
+    Util.loaderSubject.next(false)
     const errMsg = err.error["msg"] || "Something went wrong"
     Util.showToastAlert(ToastAlertType.Danger, "", errMsg)
-
    }
   })
  }
