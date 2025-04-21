@@ -1,5 +1,5 @@
 <div class="main-container">
- <app-header [isSideBars]="isSideBar" (eventEmitter)="isSideBar = $event"></app-header>
+ <app-header (eventEmitter)="isSideBar = $event"></app-header>
  <div class="main-content-container">
   <div class="body-container">
    <router-outlet></router-outlet>

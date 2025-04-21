@@ -1614,7 +1614,7 @@ lib-text-field .input-field-wrapper .input-label {
   gap: 0.6rem;
 }
 .strip-heading .strip {
-  width: 0.6rem;
+  width: 0.5rem;
   height: 1.5rem;
   background-color: var(--clr);
   border-radius: 2px;

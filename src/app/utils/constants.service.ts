@@ -13,7 +13,8 @@ export class Constants {
  public static readonly LS_TOKEN_KEY = 'token';
 
  // urls
- public static readonly USER_URL = Constants.API_URL + 'user';
+ public static readonly USER_URL = Constants.API_URL + 'user/';
+ public static readonly USER_DETAILS_URL = Constants.USER_URL + 'details';
  public static readonly LOGIN_URL = Constants.API_URL + 'login';
  public static readonly LOGIN_WITH_PWD_URL = Constants.LOGIN_URL + '/password';
 

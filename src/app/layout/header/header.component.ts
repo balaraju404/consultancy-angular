@@ -45,7 +45,7 @@ export class HeaderComponent {
   this.router.navigate(["layout", item.link])
  }
  toggleSideBars() {
-  this.isSideBars = !this.isSideBars;
+  this.isSideBars = true;
   this.eventEmitter.emit(this.isSideBars);
  }
 }

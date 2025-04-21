@@ -1,10 +1,14 @@
 @if(isSideBars){
- <div class="side-bar-container close-code" @slideLeftInOut>
-  @for(menu of menuList;track $index){
-   <div class="menu-container" [class.active]="selectedMenu['link']==menu['link']" (click)="selectedMenu = menu">
-    <i [class]="menu['icon']"></i>
-    <p>{{menu['title']}}</p>
-   </div>
-  }
+<div class="side-bar-container close-code" @slideLeftInOut>
+ <div class="container justify-space-between align-items-center col-xs-12 py-2">
+  <p class="fs-2 fw600">Menubar</p>
+  <i class="fa-solid fa-close fa-lg c-pointer" (click)="closeSidebar()"></i>
  </div>
+ @for(menu of menuList;track $index){
+ <div class="menu-container" [class.active]="selectedMenu['link']==menu['link']" (click)="selectedMenu = menu">
+  <i [class]="menu['icon']"></i>
+  <p>{{menu['title']}}</p>
+ </div>
+ }
+</div>
 }
