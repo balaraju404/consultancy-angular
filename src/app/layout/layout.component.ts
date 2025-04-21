@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { SideBarComponent } from "./side-bar/side-bar.component";
-import { LoaderComponent, ToastAlertComponent, ToastAlertModel, UILoader } from '@balaraju404/custom-components';
+import { LoaderComponent, ToastAlertComponent, ToastAlertModel, LoaderModal } from '@balaraju404/custom-components';
 import { Util } from '../utils/util.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { Util } from '../utils/util.service';
 export class LayoutComponent {
  isSideBar: boolean = false;
  toast_mdl: ToastAlertModel = new ToastAlertModel()
- loader_mdl: UILoader = new UILoader(false)
+ loader_mdl: LoaderModal = new LoaderModal(false)
 
  ngOnInit() {
   Util.toastAlertSubject.subscribe((obj: any) => {

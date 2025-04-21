@@ -10,6 +10,8 @@ export const layoutRoutes: Routes = [
    { path: "profile", loadComponent: () => import("./components/profile/profile.component").then(m => m.ProfileComponent) },
    { path: "about", loadComponent: () => import("./components/about/about.component").then(m => m.AboutComponent) },
    { path: "contactus", loadComponent: () => import("./components/contact-us/contact-us.component").then(m => m.ContactUsComponent) },
+   { path: "masters", loadChildren: () => import("./components/masters/masters.route").then(m => m.mastersRoutes) },
+   { path: "settings", loadChildren: () => import("./components/settings/settings.route").then(m => m.settingsRoutes) },
   ]
  },
 ]
