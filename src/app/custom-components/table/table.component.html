@@ -1,0 +1,59 @@
+<div class="table-container">
+ @if (tbl_mdl!.title) {
+ <div class="table-header">
+  <div class="side-strip"></div>
+  <h2>{{ tbl_mdl.title }}</h2>
+ </div>
+ <div class="table-content">
+  <table>
+   <thead>
+    <tr>
+     @if (tbl_mdl.isShowSno) {
+     <th>S.No</th>
+     }
+     @for (item of tbl_mdl.tblHeaders; track $index) {
+     <th class="text-{{ item.headerAlign }}">{{ item.headerName }}</th>
+     }
+    </tr>
+   </thead>
+   <tbody>
+    @if (tbl_mdl.tblData.length === 0) {
+    <tr>
+     <td colSpan="{{ tbl_mdl.tblHeaders.length + (tbl_mdl.isShowSno ? 1 : 0) }}">
+      {{ tbl_mdl.emptyMessage }}
+     </td>
+    </tr>
+    }
+    @for (item of tbl_mdl.tblData; track $index) {
+    <tr>
+     @if (tbl_mdl.isShowSno) {
+     <td>{{ $index + 1 }}</td>
+     }
+     @for (header of tbl_mdl.tblHeaders; track $index) {
+     <td class="text-{{ header.cellAlign }}">
+      @switch (header['headerType']) {
+      @case (1) { <!-- Text -->
+      {{ (header.isObject ? item[header.objectKey]?.[header.headerKey] : item[header.headerKey] ) ||
+      header.emptyMessage}}
+      }
+      @case (2) { <!-- Button -->
+      <button class="btn btn-{{ header.btnStyle }} {{ header.customClass }}"
+       (click)="clickEventEmitter(header.tag, item)">
+       {{ header.isDynamic ? item['buttonText_' + header.headerName] : header.buttonText }}
+      </button>
+      }
+      @case (3) { <!-- Icon -->
+      <i
+       class="{{ header.isDynamic ? item['iconClass_' + header.headerName] : header.iconClass }} {{ header.customClass }}"
+       (click)="clickEventEmitter(header.tag, item)"></i>
+      }
+      }
+     </td>
+     }
+    </tr>
+    }
+   </tbody>
+  </table>
+ </div>
+ }
+</div>
