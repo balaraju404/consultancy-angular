@@ -12,7 +12,8 @@
   padding: 1rem;
   border-radius: 10px 10px 0 0;
 
-  h2 {
+  h2,
+  i {
    font-size: 1.2rem;
    margin: 0;
    color: white;
@@ -53,7 +54,9 @@ $themes: "default" #fff 10px,
    background: $clr;
 
    @if($theme=="default") {
-    h2 {
+
+    h2,
+    i {
      color: $black-clr;
     }
    }

@@ -5,18 +5,22 @@ import { Injectable } from "@angular/core";
 })
 
 export class Constants {
- // public static readonly API_URL = 'http://localhost:3000/';
- public static readonly API_URL = 'https://consultancy-node.vercel.app/';
+ public static readonly API_URL = 'http://localhost:3000/';
+ // static readonly API_URL = 'https://consultancy-node.vercel.app/';
 
  // localstorage keys
- public static readonly LS_USERDATA_KEY = 'userdata';
- public static readonly LS_TOKEN_KEY = 'token';
+ static readonly LS_USERDATA_KEY = 'userdata';
+ static readonly LS_TOKEN_KEY = 'token';
 
  // urls
- public static readonly USER_URL = Constants.API_URL + 'user/';
- public static readonly USER_DETAILS_URL = Constants.USER_URL + 'details';
- public static readonly LOGIN_URL = Constants.API_URL + 'login';
- public static readonly LOGIN_WITH_PWD_URL = Constants.LOGIN_URL + '/password';
+ static readonly USER_URL = Constants.API_URL + 'user/';
+ static readonly USER_DETAILS_URL = Constants.USER_URL + 'details';
+ static readonly LOGIN_URL = Constants.API_URL + 'login';
+ static readonly LOGIN_WITH_PWD_URL = Constants.LOGIN_URL + '/password';
+ static readonly MASTERS_URL = Constants.API_URL + 'masters/';
+ static readonly TABS_URL = Constants.MASTERS_URL + 'tabs/';
+ static readonly TABS_DETAILS_URL = Constants.TABS_URL + 'details';
+ static readonly TABS_DELETE_URL = Constants.TABS_URL + 'delete';
 
  // regex values
  static readonly EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
