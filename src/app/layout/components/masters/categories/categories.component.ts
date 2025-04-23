@@ -30,9 +30,9 @@ export class CategoriesComponent {
   this.card_mdl = new CardModal("Create Category", BgColor.Default, true)
   this.card_mdl.customClass = "p-0"
 
-  this.tf_cat_name = new TextfieldModel(1, "Tab Name", "Enter tab name", InputType.Text, true)
-  this.tf_cat_icon = new TextfieldModel(2, "Tab Icon", "Enter tab icon {font awesome}", InputType.Text, true)
-  this.tf_cat_link = new TextfieldModel(3, "Tab Link", "Enter tab link", InputType.Text, true)
+  this.tf_cat_name = new TextfieldModel(1, "Category Name", "Enter category name", InputType.Text, true)
+  this.tf_cat_icon = new TextfieldModel(2, "Category Icon", "Enter category icon {font awesome}", InputType.Text, true)
+  this.tf_cat_link = new TextfieldModel(3, "Category Link", "Enter category link", InputType.Text, true)
 
   this.btn_save = new ButtonModel(4, "Save")
   this.btn_clear = new ButtonModel(5, "Clear")

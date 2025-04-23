@@ -12,10 +12,7 @@ import { Constants } from '../../../../utils/constants.service';
 })
 export class TabsComponent {
  private readonly apiService = inject(ApiService)
- categories: any = [
-  { "cat_id": 1, "cat_name": "Masters", "link": "masters" },
-  { "cat_id": 2, "cat_name": "Settings", "link": "settings" },
- ]
+ 
  editRecId: string = ""
 
  card_mdl!: CardModal
