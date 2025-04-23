@@ -35,7 +35,7 @@ export class TabsComponent {
   this.card_mdl = new CardModal("Create Tab", BgColor.Default, true)
   this.card_mdl.customClass = "p-0"
 
-  this.dd_cat = new DropdownModal(1, "Categories", true, this.categories, "cat_name", "cat_id")
+  this.dd_cat = new DropdownModal(1, "Categories", true, [], "cat_name", "cat_id")
   this.dd_cat.selectedValue = -1
 
   this.tf_tab_name = new TextfieldModel(2, "Tab Name", "Enter tab name", InputType.Text, true)
@@ -44,6 +44,8 @@ export class TabsComponent {
 
   this.btn_save = new ButtonModel(5, "Save")
   this.btn_clear = new ButtonModel(6, "Clear")
+
+  this.getCategoryDetails()
  }
 
  setupTable() {
@@ -117,7 +119,7 @@ export class TabsComponent {
    "tab_name": this.tf_tab_name.selectedValue,
    "tab_icon": this.tf_tab_icon.selectedValue,
    "tab_link": this.tf_tab_link.selectedValue,
-   "cat_info": this.dd_cat.selectedObj
+   "cat_id": this.dd_cat.selectedValue
   }
  }
  clearForm() {
@@ -130,6 +132,24 @@ export class TabsComponent {
  }
 
  // api calls
+ getCategoryDetails() {
+  const params = {}
+  Util.loaderSubject.next(true)
+  this.apiService.postApi(Constants.CAT_DETAILS_URL, params).subscribe({
+   next: (res: any) => {
+    Util.loaderSubject.next(false)
+    if (res["status"]) {
+     this.dd_cat.dataArr = res["data"] || []
+    } else {
+     Util.showToastAlert(ToastAlertType.Danger, "", res["msg"])
+    }
+   }, error: err => {
+    Util.loaderSubject.next(false)
+    const errMsg = err.error["msg"] || "Something went wrong"
+    Util.showToastAlert(ToastAlertType.Danger, "", errMsg)
+   }
+  })
+ }
  getTabsDetails() {
   const params = {}
   Util.loaderSubject.next(true)

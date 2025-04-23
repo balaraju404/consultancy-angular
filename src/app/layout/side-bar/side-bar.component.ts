@@ -17,9 +17,9 @@ export class SideBarComponent implements OnInit {
  @Input() isSideBars: boolean = false
  @Output() eventEmitter = new EventEmitter()
  menuList: any = [
-  { "title": "Categories", "icon": "fa-solid fa-circle-user", "link": "masters/categories" },
-  { "title": "Tabs", "icon": "fa-solid fa-user", "link": "masters/tabs" },
-  { "title": "Role Wise Tabs", "icon": "fa-solid fa-pen", "link": "settings/rws" }
+  { "title": "Categories", "icon": "fa-solid fa-layer-group", "link": "masters/categories" },
+  { "title": "Tabs", "icon": "fa-solid fa-table-cells-large", "link": "masters/tabs" },
+  { "title": "Role Wise Tabs", "icon": "fa-solid fa-users-gear", "link": "settings/rws" }
  ]
  selectedMenu: any
  ngOnInit(): void {
