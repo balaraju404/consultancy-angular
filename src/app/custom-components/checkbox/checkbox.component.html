@@ -1,0 +1,29 @@
+<div class="checkbox-group {{ cb_mdl.customClass }}" [class.invalid]="cb_mdl.isValidationFailed">
+
+ @if (cb_mdl.label) {
+ <label class="group-label">
+  {{ cb_mdl.label }}
+  @if (cb_mdl.isMandatory) {
+  <span class="mandatory">*</span>
+  }
+ </label>
+ }
+
+ <!--  FLEX‑ROW CONTAINER FOR CHECKBOXES  -->
+ <div class="checkbox-list" [style.--gap]="cb_mdl!.gap">
+  @for (item of cb_mdl.dataArr; track $index; let i = $index) {
+  <label class="checkbox-wrapper" [class.disabled]="item?.isDisabled">
+   <input type="checkbox" [disabled]="item?.isDisabled || cb_mdl.isDisabled"
+    [checked]="isChecked(item[cb_mdl.valueKey])" [value]="item[cb_mdl.valueKey]" (change)="onCheckChkbox($event, i)" />
+   <span class="checkmark"></span>
+   {{ item[cb_mdl.displayKey] }}
+  </label>
+  }
+ </div>
+
+ @if (cb_mdl.isValidationFailed) {
+ <span class="error-msg">
+  {{ cb_mdl.customErrMsg || 'Selection required' }}
+ </span>
+ }
+</div>
