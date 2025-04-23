@@ -2,6 +2,7 @@ import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular
 import { CommonModule } from '@angular/common';
 import { slideLeftInOut } from "../../utils/animate";
 import { OutsideClickService } from "../../utils/outside-click.service";
+import { Router } from '@angular/router';
 @Component({
  selector: 'app-side-bar',
  imports: [CommonModule],
@@ -10,27 +11,32 @@ import { OutsideClickService } from "../../utils/outside-click.service";
  animations: [slideLeftInOut]
 })
 export class SideBarComponent implements OnInit {
- private readonly closeOutsideClick = inject(OutsideClickService);
- @Input() isSideBars: boolean = false;
- @Output() eventEmitter = new EventEmitter();
+ private readonly closeOutsideClick = inject(OutsideClickService)
+ private readonly router = inject(Router)
+
+ @Input() isSideBars: boolean = false
+ @Output() eventEmitter = new EventEmitter()
  menuList: any = [
-  { "title": "Dashboard", "icon": "fa-solid fa-circle-user", "link": "menu1" },
-  { "title": "menu1", "icon": "fa-solid fa-user", "link": "menu2" },
-  { "title": "menu2fdsf", "icon": "fa-solid fa-pen", "link": "menu3" },
-  { "title": "menu3", "icon": "fa-solid fa-list", "link": "men4" },
- ];
- selectedMenu: any;
+  { "title": "Categories", "icon": "fa-solid fa-circle-user", "link": "masters/categories" },
+  { "title": "Tabs", "icon": "fa-solid fa-user", "link": "masters/tabs" },
+  { "title": "Role Wise Tabs", "icon": "fa-solid fa-pen", "link": "settings/rws" }
+ ]
+ selectedMenu: any
  ngOnInit(): void {
-  this.outsideclick();
-  this.selectedMenu = this.menuList[0];
+  this.outsideclick()
  }
  outsideclick() {
   this.closeOutsideClick.clickOutsideEmitter.subscribe(() => {
    this.closeSidebar()
-  });
+  })
  }
  closeSidebar() {
   this.isSideBars = false
   this.eventEmitter.emit(this.isSideBars)
+ }
+ navigateToUrl(item: any) {
+  this.router.navigate(["layout", ...item.link.split("/")])
+  this.selectedMenu = item
+  this.closeSidebar()
  }
 }

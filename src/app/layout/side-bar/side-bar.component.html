@@ -5,7 +5,7 @@
   <i class="fa-solid fa-close fa-lg c-pointer" (click)="closeSidebar()"></i>
  </div>
  @for(menu of menuList;track $index){
- <div class="menu-container" [class.active]="selectedMenu['link']==menu['link']" (click)="selectedMenu = menu">
+ <div class="menu-container" [class.active]="selectedMenu?.['link']==menu['link']" (click)="navigateToUrl(menu)">
   <i [class]="menu['icon']"></i>
   <p>{{menu['title']}}</p>
  </div>
