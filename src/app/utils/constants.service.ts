@@ -18,6 +18,9 @@ export class Constants {
  static readonly LOGIN_URL = Constants.API_URL + 'login';
  static readonly LOGIN_WITH_PWD_URL = Constants.LOGIN_URL + '/password';
  static readonly MASTERS_URL = Constants.API_URL + 'masters/';
+ static readonly CAT_URL = Constants.MASTERS_URL + 'categories/';
+ static readonly CAT_DETAILS_URL = Constants.CAT_URL + 'details';
+ static readonly CAT_DELETE_URL = Constants.CAT_URL + 'delete';
  static readonly TABS_URL = Constants.MASTERS_URL + 'tabs/';
  static readonly TABS_DETAILS_URL = Constants.TABS_URL + 'details';
  static readonly TABS_DELETE_URL = Constants.TABS_URL + 'delete';

@@ -1,0 +1,23 @@
+<div class="col-xs-12">
+ <lib-card [card_mdl]="card_mdl">
+  <div class="container row-gap-2">
+   <div class="col-xs-12">
+    <lib-text-field [tf_mdl]="tf_cat_name"></lib-text-field>
+   </div>
+   <div class="col-xs-12">
+    <lib-text-field [tf_mdl]="tf_cat_icon"></lib-text-field>
+   </div>
+   <div class="col-xs-12">
+    <lib-text-field [tf_mdl]="tf_cat_link"></lib-text-field>
+   </div>
+   <div class="col-xs-12 btn-grp">
+    <lib-button [btn_mdl]="btn_save" (eventHandler)="eventHandler($event)"></lib-button>
+    <lib-button [btn_mdl]="btn_clear" (eventHandler)="eventHandler($event)"></lib-button>
+   </div>
+  </div>
+ </lib-card>
+</div>
+
+<div class="col-xs-12 mt-4">
+ <lib-table [tbl_mdl]="tbl_mdl" (eventHandlerEmiiter)="tblEventHandler($event)"></lib-table>
+</div>
